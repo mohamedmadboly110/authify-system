@@ -23,6 +23,11 @@ const connectToDB = async ()=>{
 
 connectToDB()
 
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("DB connected"))
+  .catch(err => console.log(err));
 
 
 app.use('/', userRouter)
